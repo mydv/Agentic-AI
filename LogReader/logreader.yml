@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: log-reader
+spec:
+  containers:
+  - name: reader
+    image: busybox
+    command: ["/bin/sh", "-c", "tail -f /Logs/logs/payment_error.log"]
+    volumeMounts:
+    - name: log-volume
+      mountPath: /logs
+  volumes:
+  - name: log-volume
+    hostPath:
+      path: /mnt/logs
+      type: Directory

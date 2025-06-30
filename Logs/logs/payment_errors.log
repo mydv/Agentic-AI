@@ -1,0 +1,4 @@
+2025-07-01 00:33:24,472 - ERROR - Payment failed for user user_123: Invalid payment amount.
+2025-07-01 00:33:24,473 - ERROR - Payment failed for user user_456: Payment gateway timeout.
+2025-07-01 00:44:58,245 - ERROR - Payment failed for user user_123: Invalid payment amount.
+2025-07-01 00:44:58,245 - ERROR - Payment failed for user user_456: Payment gateway timeout.

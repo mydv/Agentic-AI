@@ -1,0 +1,6 @@
+2025-07-01 00:38:45,983 - ERROR - Payment failed for user user_123: Invalid payment amount.
+2025-07-01 00:38:45,984 - ERROR - Payment failed for user user_456: Unable to process payment.
+2025-07-01 00:40:45,984 - ERROR - Payment failed for user user_123: Invalid payment amount.
+2025-07-01 00:40:45,985 - ERROR - Payment failed for user user_456: Unable to process payment.
+2025-07-01 00:42:45,986 - ERROR - Payment failed for user user_123: Invalid payment amount.
+2025-07-01 00:42:45,987 - ERROR - Payment failed for user user_456: Unable to process payment.

@@ -38,7 +38,7 @@ def analyze_logs(query):
         HumanMessage(content=f"Logs:\n{context}\n\nQuery:\n{query}\n\nWhat is the most likely root cause and how should we resolve this?")
     ]
 
-    return llm.invoke(messages).content
+    return llm.invoke(messages)
 	
 #Run it
 query = "payment failed due to gateway timeout"

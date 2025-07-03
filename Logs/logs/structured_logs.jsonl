@@ -1,0 +1,4 @@
+{"timestamp": "2025-07-01T00:33:24.472000", "level": "ERROR", "user_id": "user_123", "message": "Invalid payment amount."}
+{"timestamp": "2025-07-01T00:33:24.473000", "level": "ERROR", "user_id": "user_456", "message": "Payment gateway timeout."}
+{"timestamp": "2025-07-01T00:44:58.245000", "level": "ERROR", "user_id": "user_123", "message": "Invalid payment amount."}
+{"timestamp": "2025-07-01T00:44:58.245000", "level": "ERROR", "user_id": "user_456", "message": "Payment gateway timeout."}

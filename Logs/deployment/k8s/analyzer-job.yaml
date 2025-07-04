@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: log-analyzer
+spec:
+  template:
+    spec:
+      containers:
+      - name: analyzer
+        image: your-registry/log-analyzer:latest
+        volumeMounts:
+        - name: faiss
+          mountPath: /app/faiss
+      restartPolicy: Never
+      volumes:
+      - name: faiss
+        persistentVolumeClaim:
+          claimName: faiss-pvc

@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: log-converter
+spec:
+  schedule: "{{ .Values.schedule.converter }}"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: converter
+            image: {{ .Values.image.converter }}
+            volumeMounts:
+            - name: logs
+              mountPath: /app/logs
+          restartPolicy: OnFailure
+          volumes:
+          - name: logs
+            persistentVolumeClaim:
+              claimName: {{ .Values.pvc.logs.name }}

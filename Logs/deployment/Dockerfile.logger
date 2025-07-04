@@ -1,0 +1,16 @@
+# Dockerfile.logger
+
+FROM python:3.11-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy logger script and subfolders
+COPY ../app/main.py /app/
+COPY ../app/logs /app/logs
+
+# Ensure the logs directory exists
+RUN mkdir -p /app/logs
+
+# Run the log generator
+CMD ["python", "main.py"]

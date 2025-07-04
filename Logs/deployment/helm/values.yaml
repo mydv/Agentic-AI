@@ -1,0 +1,16 @@
+image:
+  logger: your-registry/payment-logger:latest
+  converter: your-registry/log-converter:latest
+  embedder: your-registry/log-embedder:latest
+  analyzer: your-registry/log-analyzer:latest
+
+pvc:
+  logs:
+    name: log-pvc
+    storage: 100Mi
+  faiss:
+    name: faiss-pvc
+    storage: 100Mi
+
+schedule:
+  converter: "*/10 * * * *"

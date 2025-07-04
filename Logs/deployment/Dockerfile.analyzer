@@ -1,0 +1,20 @@
+# Dockerfile.analyzer
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Copy analyzer script and FAISS resources
+COPY ../app/LlmAgentOllamaLocalResponse.py /app/
+COPY ../app/faiss /app/faiss
+
+# Install dependencies
+RUN pip install --no-cache-dir \
+    faiss-cpu \
+    pandas \
+    sentence-transformers \
+    langchain \
+    langchain-community
+
+# Run the LangChain log analyzer
+CMD ["python", "LlmAgentOllamaLocalResponse.py"]

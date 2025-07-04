@@ -1,0 +1,20 @@
+# Dockerfile.embedder
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Copy embedder script and relevant folders
+COPY ../app/LogEmbedder.py /app/
+COPY ../app/logs /app/logs
+COPY ../app/faiss /app/faiss
+
+# Install required dependencies
+RUN pip install --no-cache-dir \
+    faiss-cpu \
+    pandas \
+    numpy \
+    tqdm \
+    sentence-transformers
+
+CMD ["python", "LogEmbedder.py"]

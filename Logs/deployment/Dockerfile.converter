@@ -1,0 +1,11 @@
+# Dockerfile.converter
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Copy the log converter script and logs folder
+COPY ../app/LogConverter.py /app/
+COPY ../app/logs /app/logs
+
+CMD ["python", "LogConverter.py"]

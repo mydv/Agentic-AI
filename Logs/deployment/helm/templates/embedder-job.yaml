@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: log-embedder
+spec:
+  template:
+    spec:
+      containers:
+      - name: embedder
+        image: {{ .Values.image.embedder }}
+        volumeMounts:
+        - name: logs
+          mountPath: /app/logs
+        - name: faiss
+          mountPath: /app/faiss
+      restartPolicy: Never
+      volumes:
+      - name: logs
+        persistentVolumeClaim:
+          claimName: {{ .Values.pvc.logs.name }}
+      - name: faiss
+        persistentVolumeClaim:
+          claimName: {{ .Values.pvc.faiss.name }}

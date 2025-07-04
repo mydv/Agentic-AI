@@ -7,7 +7,7 @@ from sentence_transformers import SentenceTransformer
 
 # Load log lines
 logs = []
-with open("logs/structured_logs.jsonl", "r") as f:
+with open("logs/structured_logs_timestamp.jsonl", "r") as f:
     for line in f:
         logs.append(json.loads(line))
 
@@ -31,10 +31,10 @@ index = faiss.IndexFlatL2(embeddings_np.shape[1])
 index.add(embeddings_np)
 
 # Save the index
-faiss.write_index(index, "faiss_log_index.idx")
+faiss.write_index(index, "faiss/faiss_log_index.idx")
 
 # Optionally save metadata for reverse lookup
-df.to_json("faiss_log_metadata.jsonl", orient="records", lines=True)
+df.to_json("faiss/faiss_log_metadata.jsonl", orient="records", lines=True)
 
 #Perform a similarity search on new incidents
 def search_similar_logs(query_text, top_k=3):

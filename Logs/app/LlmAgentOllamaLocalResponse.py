@@ -3,8 +3,8 @@ import json
 import pandas as pd
 
 # Load FAISS index and metadata
-faiss_index = faiss.read_index("faiss_log_index.idx")
-df_logs = pd.read_json("faiss_log_metadata.jsonl", lines=True)
+faiss_index = faiss.read_index("faiss/faiss_log_index.idx")
+df_logs = pd.read_json("faiss/faiss_log_metadata.jsonl", lines=True)
 
 #Create the embedding model
 from sentence_transformers import SentenceTransformer

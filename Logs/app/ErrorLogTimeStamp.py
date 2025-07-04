@@ -24,7 +24,7 @@ last_log_time = datetime.min
 def process_payment(user_id, amount):
     global last_log_time
     now = datetime.now()
-    if now - last_log_time >= timedelta(minutes=5):
+    if now - last_log_time >= timedelta(minutes=2):
         try:
             if amount <= 0:
                 raise ValueError("Invalid payment amount.")
@@ -44,4 +44,4 @@ if __name__ == "__main__":
     while True:
         process_payment("user_123", 0)
         process_payment("user_456", 100.00)
-        time.sleep(120)  # Sleep for 2 minutes
+        time.sleep(60)  # Sleep for 2 minutes

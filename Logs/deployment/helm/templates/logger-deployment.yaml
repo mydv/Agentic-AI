@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-logger
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payment-logger
+  template:
+    metadata:
+      labels:
+        app: payment-logger
+    spec:
+      containers:
+      - name: logger
+        image: {{ .Values.image.logger }}
+        volumeMounts:
+        - name: logs
+          mountPath: /app/logs
+      volumes:
+      - name: logs
+        persistentVolumeClaim:
+          claimName: {{ .Values.pvc.logs.name }}

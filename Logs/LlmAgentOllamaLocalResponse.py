@@ -24,10 +24,19 @@ def search_logs(query, top_k=5):
 
 #Construct the langchain agent
 	
-from langchain_community.llms import Ollama
+import boto3
+from langchain.llms import Bedrock
 from langchain.schema import SystemMessage, HumanMessage
 
-llm = Ollama(model="mistral")
+# Initialize Bedrock client
+bedrock_client = boto3.client('bedrock-runtime', region_name='us-east-1')
+
+# Initialize Bedrock LLM (using a model available in Bedrock, e.g., Anthropic Claude)
+llm = Bedrock(
+    client=bedrock_client,
+    model_id="anthropic.claude-v2",  # Replace with desired Bedrock model ID
+    model_kwargs={"max_tokens_to_sample": 300}
+)
 
 def analyze_logs(query):
     similar_logs = search_logs(query)
